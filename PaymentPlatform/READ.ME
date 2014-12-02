@@ -1,0 +1,23 @@
+This is just a PaymentPlatform code in Android.
+It used to work for chinese mobile payment, it should be out of date now. so you could just use this 
+as your begining code.
+
+1.support alipay.
+2.support mm payment.
+3.support sms send.
+
+All image resources was not included here, they were packaged into a jar file with aapt. 
+More detail in how to package them just check the link below.
+
+	http://forum.xda-developers.com/showthread.php?t=785012
+
+In fact, it was just one step of process in package APK.
+mktemp -u /tmp/resources-XXXXXXXXXX.zip
+~/bin/adt-bundle-linux-x86_64-20130514/sdk/build-tools/android-4.2.2/aapt package -f -M ~/Code/AndroidStudio/workspace/PlatformResProvider/AndroidManifest.xml -F /tmp/resources-gNHycTdnvn.zip -S ~/Code/AndroidStudio/workspace/PlatformResProvider/res -I /home/michael/bin/adt-bundle-linux-x86_64-20130514/sdk/platforms/android-17/android.jar
+cp /tmp/resources-XXXXXXXXXX.zip ～/Desktop/
+
+so if you want to use resource file, just read it from jar file. 
+
+Sadly, the resource index was really coded ugly..If you want , you could use tool to automatic create them into a class file.
+
+And the view in it was all written by hand with no resource xml... I just thought I was crasy...
