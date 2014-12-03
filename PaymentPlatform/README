@@ -6,6 +6,7 @@ as your begining code.
 2.support mm payment.
 3.support sms send.
 
+NOTICE:
 All image resources was not included here, they were packaged into a jar file with aapt. 
 More detail in how to package them just check the link below.
 
@@ -18,6 +19,21 @@ cp /tmp/resources-XXXXXXXXXX.zip ～/Desktop/
 
 so if you want to use resource file, just read it from jar file. 
 
-Sadly, the resource index was really coded ugly..If you want , you could use tool to automatic create them into a class file.
+Sadly, the resource index was coded really ugly..If you want , you could use tool to automatic create them into a class file.
 
 And the view in it was all written by hand with no resource xml... I just thought I was crasy...
+
+I suggest that try to use auto generate code to create these view...
+
+
+HOW TO USE IT:
+PaymentCenter mCenter = PaymentCenter.initialize(activity, "yours-appid", "yours-appkey", notification);
+
+if(null != mCenter) {
+	mCenter.startPurchase(activity, new ItemInfo(){
+		@Override
+		public void ...
+		...
+		...
+	});
+}

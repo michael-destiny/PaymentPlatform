@@ -32,7 +32,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
+/*
+ *  Whole process list below:
+ *
+ *	1.request for unique orderId each time.
+ *	2.ask payment provider to deal with payment.
+ *	3.after you got the result from payment provider, you should sync the result with server.
+ *	4.deal with the synced result.
+ */
 public class PaymentInterface {
+
 	//record order in memory.
 	HashMap<String, PurchaseInfo> purchaseData = new HashMap<String, PurchaseInfo>();
 	PurchaseInfo purchaseInfo = null;
@@ -193,7 +202,7 @@ public class PaymentInterface {
 				if(next) {
 					//start using mm payment.
 					String imsi = mCenter.getDeviceInfo().getImsi();
-					//imsiType 1 means yidong.
+					//imsiType 1 means yidong. we always use mm payment as our best choice.
 					if(Tools.getImsiType(mCenter.getDeviceInfo()) == Tools.IMSI_YIDONG && checkMMPurchase()) {
 						//using mm payment
 						mCenter.getRuntimeEnv().runOnUiThread(new Runnable() {
